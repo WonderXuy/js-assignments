@@ -228,7 +228,31 @@ function extractEmails(str) {
  *
  */
 function getRectangleString(width, height) {
-    throw new Error('Not implemented');
+    let str = '';
+    for(let i = 0; i < height; i++) {
+        if(i == 0) {
+            str += '┌'; 
+            for(let j = 1; j < width - 1; j++) {
+                str += '─';
+            }      
+            str += '┐\n';
+        }
+        else if(i == height - 1) {
+            str += '└'; 
+            for(let j = 1; j < width - 1; j++) {
+                str += '─';
+            }      
+            str += '┘\n';
+        }
+        else {
+            str += '│'; 
+            for(let j = 1; j < width - 1; j++) {
+                str += ' ';
+            }      
+            str += '│\n';
+        }
+    }
+    return str;
 }
 
 
