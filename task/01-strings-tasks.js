@@ -69,7 +69,8 @@ function getStringFromTemplate(firstName, lastName) {
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
 function extractNameFromTemplate(value) {
-    throw new Error('Not implemented');
+    let str = value.match(/Hello,\s(.*)\s(.*)!/);
+    return str[1]+' '+str[2];
 }
 
 
