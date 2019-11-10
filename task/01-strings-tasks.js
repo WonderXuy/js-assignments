@@ -156,7 +156,7 @@ function repeatString(value, count) {
 function removeFirstOccurrences(str, value) {
     let startIndex = str.indexOf(value);
     if(startIndex != -1) {
-        return str.slice(0, startIndex) + str.slice(startIndex + value.length, str.length);
+        return str.slice(0, startIndex) + str.slice(startIndex + value.length);
     }
 }
 
