@@ -272,7 +272,31 @@ function getRectangleString(width, height) {
  *
  */
 function encodeToRot13(str) {
-    throw new Error('Not implemented');
+    let result = '';
+    let startUpper = 'A'.codePointAt(0);
+    let startLower = 'a'.codePointAt(0);
+    let endUpper = 'Z'.codePointAt(0);
+    let endLower = 'z'.codePointAt(0);
+    function isLetter(charCode) {
+        if ((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122)) return true;
+        return false;
+    }
+
+    for(let i = 0; i < str.length; i++) {      
+        let charCode = str.codePointAt(i);
+        if (!isLetter(charCode)) {
+            result += str[i];
+            continue;
+        }
+        if (charCode <= endUpper) {
+            charCode + 13 > endUpper ? charCode = startUpper + Math.abs(12 - (endUpper - charCode)) : charCode += 13;
+        }
+        else {
+            charCode + 13 > endLower ? charCode = startLower + Math.abs(12 - (endLower - charCode)) : charCode += 13;
+        }
+        result += String.fromCharCode(charCode);
+    }
+    return result;
 }
 
 /**
