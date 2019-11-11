@@ -342,7 +342,24 @@ function isString(value) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-    throw new Error('Not implemented');
+    const numsOfSybmbols = {
+        'A': 0,
+        'J': 10,
+        'Q': 11,
+        'K': 12,
+        '♣': 0,
+        '♦': 13,
+        '♥': 26,
+        '♠': 39,
+    }
+    const startRow = numsOfSybmbols[value[value.length-1]];
+    value = value.slice(0, value.length-1);
+    if (isNaN(value)) {
+        return startRow + numsOfSybmbols[value[0]];
+    }
+    else {
+        return +--value + startRow;
+    }
 }
 
 
