@@ -552,7 +552,7 @@ function getIntervalArray(start, end) {
 function distinct(arr) {
    let result = [];
    result = arr.filter(function(item) {
-      if(!result.includes(item)) {
+      if(result.indexOf(item) == -1) {
          return result.push(item);
       }
    });
