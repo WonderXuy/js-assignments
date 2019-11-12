@@ -590,7 +590,21 @@ function distinct(arr) {
  *   }
  */
 function group(array, keySelector, valueSelector) {
-   throw new Error('Not implemented');
+   const changeValueByKey = function(value, item) {
+      let bufArray = value.get(keySelector(item));
+      bufArray.push(valueSelector(item));
+      value.set(keySelector(item), bufArray);
+   };
+   
+   return array.reduce(function (value, item) {
+      if(value.has(keySelector(item))) {
+         changeValueByKey(value, item);
+      } 
+      else {
+         value.set(keySelector(item), [valueSelector(item)]);
+      }
+      return value;
+  }, new Map());
 }
 
 
