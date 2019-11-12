@@ -600,7 +600,11 @@ function group(array, keySelector, valueSelector) {
  *   ['one','two','three'], x=>x.split('')  =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
 function selectMany(arr, childrenSelector) {
-    throw new Error('Not implemented');
+   let result = [];
+   arr.map(function(item) {
+      result = result.concat(childrenSelector(item));
+   });
+   return result;
 }
 
 
