@@ -30,7 +30,16 @@
  *
  */
 function getFizzBuzz(num) {
-    throw new Error('Not implemented');
+    if(num % 3 == 0 && num % 5 == 0) {
+        return 'FizzBuzz'
+    }
+    else if(num % 3 == 0) {
+        return 'Fizz';
+    }
+    else if(num % 5 == 0) {
+        return 'Buzz';
+    }
+    else return num;
 }
 
 
@@ -46,7 +55,9 @@ function getFizzBuzz(num) {
  *   10 => 3628800
  */
 function getFactorial(n) {
-    throw new Error('Not implemented');
+    if(n < 0) return 0;
+    if(n == 0) return 1;
+    return n * getFactorial(n - 1);
 }
 
 
@@ -63,7 +74,11 @@ function getFactorial(n) {
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
 function getSumBetweenNumbers(n1, n2) {
-    throw new Error('Not implemented');
+    let sum = 0;
+    for(let i = n1; i <= n2; i++){
+        sum += i;
+    }
+    return sum;
 }
 
 
@@ -82,7 +97,10 @@ function getSumBetweenNumbers(n1, n2) {
  *   10,10,10 =>  true
  */
 function isTriangle(a,b,c) {
-    throw new Error('Not implemented');
+    if((a + b > c) && (b + c > a) && (c + a > b)) {
+        return true;
+    }
+    return false;
 }
 
 
@@ -119,7 +137,10 @@ function isTriangle(a,b,c) {
  *  
  */
 function doRectanglesOverlap(rect1, rect2) {
-    throw new Error('Not implemented');
+    if(rect1.top + rect1.height >= rect2.top && rect1.left + rect1.width >= rect2.left) {
+        return true;
+    }
+    return false;
 }
 
 
@@ -150,7 +171,10 @@ function doRectanglesOverlap(rect1, rect2) {
  *   
  */
 function isInsideCircle(circle, point) {
-    throw new Error('Not implemented');
+    if(Math.sqrt(Math.pow(point.x - circle.center.x, 2) + Math.pow(point.y - circle.center.y, 2)) < circle.radius) {
+        return true;
+    }
+    return false;
 }
 
 
@@ -166,7 +190,18 @@ function isInsideCircle(circle, point) {
  *   'entente' => null
  */
 function findFirstSingleChar(str) {
-    throw new Error('Not implemented');
+    let buf = null;
+    for(let i = 0; i < str.length; i++) { 
+        let buf = str[i];
+        for(let j = 0; j < str.length; j++){
+            if(str[j] == buf && j != i) {
+                buf = null;
+                break;
+            }
+        }
+        if(buf != null) return buf;
+    }
+    return buf;
 }
 
 
@@ -192,7 +227,21 @@ function findFirstSingleChar(str) {
  *
  */
 function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
-    throw new Error('Not implemented');
+    function getString(a, b) {
+        if(isStartIncluded && isEndIncluded) {
+            return '[' + a + ', ' + b + ']';
+        }
+        else if(!isStartIncluded && isEndIncluded) {
+            return '(' + a + ', ' + b + ']';
+        }
+        else if(isStartIncluded && !isEndIncluded) {
+            return '[' + a + ', ' + b + ')';
+        }
+        else if(!isStartIncluded && !isEndIncluded) {
+            return '(' + a + ', ' + b + ')';
+        }
+    }
+    return a < b ? getString(a, b) : getString(b, a);
 }
 
 
@@ -209,7 +258,11 @@ function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
  * 'noon' => 'noon'
  */
 function reverseString(str) {
-    throw new Error('Not implemented');
+    let result = '';
+    for(let i = str.length - 1; i >= 0; i--) {
+        result += str[i];
+    }
+    return result;
 }
 
 
@@ -226,7 +279,12 @@ function reverseString(str) {
  *   34143 => 34143
  */
 function reverseInteger(num) {
-    throw new Error('Not implemented');
+    let result = '';
+    let str = num + '';
+    for(let i = str.length - 1; i >= 0; i--) {
+        result += str[i];
+    }
+    return Number(result);
 }
 
 
