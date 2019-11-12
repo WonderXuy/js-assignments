@@ -646,7 +646,9 @@ function getElementByIndexes(arr, indexes) {
  * 
  */
 function swapHeadAndTail(arr) {
-    throw new Error('Not implemented');
+   let head = arr.slice(0, arr.length / 2);
+   let tail = arr.slice(-arr.length / 2);
+   return arr.length % 2 == 0 || arr.length == 1 ? tail.concat(head) : tail.concat(arr[Math.floor(arr.length / 2)]).concat(head);
 }
 
 
