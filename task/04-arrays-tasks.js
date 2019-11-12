@@ -202,7 +202,13 @@ function getTail(arr, n) {
  *    +'30,31,32,33,34'
  */
 function toCsvText(arr) {
-   throw new Error('Not implemented');
+   let result = arr.map(function(item, index, arr) {
+      if(index != arr.length-1) {
+         return item + '\n';
+      }
+      else return item + '';
+   });
+   return result.join('');
 }
 
 /**
