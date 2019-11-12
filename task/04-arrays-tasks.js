@@ -203,7 +203,7 @@ function getTail(arr, n) {
  */
 function toCsvText(arr) {
    let result = arr.map(function(item, index, arr) {
-      if(index != arr.length-1) {
+      if(index != arr.length - 1) {
          return item + '\n';
       }
       else return item + '';
@@ -242,7 +242,13 @@ function toArrayOfSquares(arr) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
 function getMovingSum(arr) {
-   throw new Error('Not implemented');
+   let result = [];
+   arr.reduce(function(previousValue, item) {
+      let nextValue = previousValue + item;
+      result.push(nextValue);
+      return nextValue;
+   }, 0);
+   return result;
 }
 
 /**
