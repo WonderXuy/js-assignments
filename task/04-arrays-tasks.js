@@ -403,7 +403,9 @@ function getItemsSum(arr) {
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
 function getFalsyValuesCount(arr) {
-   throw new Error('Not implemented');
+   return arr.reduce(function(counter, item) {
+      return Boolean(item) == false ? ++counter : counter;
+   }, 0);
 }
 
 /**
