@@ -111,7 +111,13 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (1,2)     => 0
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
-    throw new Error('Not implemented');
+    const findScalarProduct = function(x1, y1, x2, y2) {
+        return x1 * x2 + y1 * y2;
+    }
+    const findModule = function(x, y) {
+        return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+    }
+    return Math.acos(findScalarProduct(x1, y1, x2, y2) / (findModule(x1, y1) * findModule(x2, y2)));
 }
 
 /**
